@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const GendersTable = () => {
   return (
     <>
@@ -14,8 +16,12 @@ const GendersTable = () => {
             <td>1</td>
             <td>Male</td>
             <td>
-              <button className="btn btn-success">Edit</button>
-              <button className="btn btn-danger">Delete</button>
+              <Link to={"/gender/edit"} className="btn btn-success">
+                Edit
+              </Link>
+              <Link to={"/gender/delete"} className="btn btn-danger">
+                Delete
+              </Link>
             </td>
           </tr>
           <tr>

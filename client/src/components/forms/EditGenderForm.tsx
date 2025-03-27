@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const EditGenderForm = () => {
   return (
     <>
@@ -17,9 +19,9 @@ const EditGenderForm = () => {
               />
             </div>
             <div className="d-flex justify-content-end gap-2">
-              <button type="button" className="btn btn-secondary">
+              <Link to={"/"} className="btn btn-secondary">
                 Cancel
-              </button>
+              </Link>
               <button type="submit" className="btn btn-primary">
                 Save Changes
               </button>

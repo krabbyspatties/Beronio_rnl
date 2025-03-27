@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Genders from "./pages/gender/Genders";
 import EditGender from "./pages/gender/EditGender";
 import DeleteGender from "./pages/gender/DeleteGender";
+
 const router = createBrowserRouter([
   {
     path: "/",
