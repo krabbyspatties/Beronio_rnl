@@ -5,6 +5,8 @@ import GendersTable from "../../components/tables/GendersTable";
 import MainLayout from "../layout/MainLayout";
 
 const Genders = () => {
+  const [refreshGender, setRefreshGender] = useState(false);
+
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -37,11 +39,12 @@ const Genders = () => {
           <AddGendersForm
             onGenderAdded={(message) => {
               handleShowAlertMessage(message, true, true);
+              setRefreshGender(!refreshGender);
             }}
           />
         </div>
         <div className="col-md-8">
-          <GendersTable />
+          <GendersTable refreshGenders={refreshGender} />
         </div>
       </div>
     </>

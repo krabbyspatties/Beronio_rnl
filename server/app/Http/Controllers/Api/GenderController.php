@@ -8,6 +8,15 @@ use App\Models\Gender;
 
 class GenderController extends Controller
 {
+
+    public function loadGenders()
+    {
+        $genders = Gender::all();
+        return response()->json([
+            'genders' => $genders
+        ], 200);
+    }
+
     public function storeGender(Request $request)
     {
         $validated = $request->
