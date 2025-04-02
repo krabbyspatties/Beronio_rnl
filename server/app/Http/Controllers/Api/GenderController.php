@@ -17,6 +17,14 @@ class GenderController extends Controller
         ], 200);
     }
 
+    public function getGender($genderID)
+    {
+        $gender = Gender::find($genderID);
+        return response()->json([
+            'gender' => $gender
+        ], 200);
+    }
+
     public function storeGender(Request $request)
     {
         $validated = $request->
@@ -33,4 +41,20 @@ class GenderController extends Controller
             'message' => 'Gender Successfully Added'
         ], 200);
     }
+
+    public function updateGender(Request $request, gender $gender)
+    {
+        $validated = $request->validate([
+            'gender' => ['required', 'min:4', 'max:10']
+        ]);
+
+        $gender->update([
+            'gender' => $validated['gender']
+        ]);
+
+        return response()->json([
+            'message' => 'Gender Successfully Updated'
+        ], 200);
+    }
+
 }
