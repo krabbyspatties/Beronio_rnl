@@ -11,7 +11,7 @@ class GenderController extends Controller
 
     public function loadGenders()
     {
-        $genders = Gender::all();
+        $genders = Gender::where('tbl_genders.is_deleted', false)->get();
         return response()->json([
             'genders' => $genders
         ], 200);
@@ -56,5 +56,17 @@ class GenderController extends Controller
             'message' => 'Gender Successfully Updated'
         ], 200);
     }
+
+    public function destroyGender(Request $request, Gender $gender)
+    {
+        $gender->update([
+            'is_deleted' => true
+        ]);
+
+        return response()->json([
+            'message' => 'Gender Successfully Deleted.'
+        ], 200);
+    }
+
 
 }

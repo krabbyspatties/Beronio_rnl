@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->String('contact_number', 55);
             $table->String('email', 55)->unique();
             $table->String('password', 255);
+            $table->tinyInteger('is_deleted');
             $table->timestamps();
 
             $table->foreign('gender_id')
@@ -37,6 +38,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('tbl_users');
+        Schema::enableForeignKeyConstraints();
     }
 };
