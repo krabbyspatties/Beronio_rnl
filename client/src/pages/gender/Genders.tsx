@@ -1,8 +1,8 @@
 import { useState } from "react";
 import AlertMessage from "../../components/AlertMessage";
-import AddGendersForm from "../../components/forms/AddGenderForm";
-import GendersTable from "../../components/tables/GendersTable";
+import GendersTable from "../../components/tables/gender/GendersTable";
 import MainLayout from "../layout/MainLayout";
+import AddGendersForm from "../../components/forms/gender/AddGenderForm";
 
 const Genders = () => {
   const [refreshGender, setRefreshGender] = useState(false);

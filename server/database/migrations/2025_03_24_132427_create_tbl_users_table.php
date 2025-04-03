@@ -17,12 +17,13 @@ return new class extends Migration {
             $table->String('last_name', 55);
             $table->String('suffix_name', 55)->nullable();
             $table->integer('age');
+            $table->date('birth_date');
             $table->unsignedBigInteger('gender_id');
             $table->String('address', 255);
             $table->String('contact_number', 55);
             $table->String('email', 55)->unique();
             $table->String('password', 255);
-            $table->tinyInteger('is_deleted');
+            $table->tinyInteger('is_deleted')->default(false);
             $table->timestamps();
 
             $table->foreign('gender_id')
