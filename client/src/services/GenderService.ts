@@ -19,6 +19,13 @@ const GenderServices = {
     },
     updateGender: async(genderId: number, data: any)=>{
         return AxiosInstance.put(`/updateGender/${genderId}`, data).then((response) => response).catch((error) => {throw error}) 
+    },
+    destroyGender: async(genderId: number) => {
+        return AxiosInstance.put(`/destroyGender/${genderId}`)
+        .then((response) => response)
+        .catch((error)=>{
+            throw error;
+        });
     }
 }
 
