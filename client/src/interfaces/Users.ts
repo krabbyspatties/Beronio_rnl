@@ -1,12 +1,12 @@
-import Genders from "./Genders";
+import {Genders} from "./Genders";
 
-interface Users
+export interface Users
 {
     user_id: number;
     first_name: string;
-    middle_name?: string;
+    middle_name: string;
     last_name: string;
-    suffix_name?: string;
+    suffix_name: string;
     age: number;
     birth_date: string;
     gender: Genders;
@@ -16,6 +16,4 @@ interface Users
     password: string;
     created_at: string;
     updated_at: string;
-}
-
-export default Users;
+};

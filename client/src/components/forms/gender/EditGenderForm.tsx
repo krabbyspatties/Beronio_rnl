@@ -110,7 +110,7 @@ const EditGenderForm = ({ onGenderUpdate }: EditGenderFormProps) => {
   return (
     <>
       {state.loadingGet ? (
-        <div className="text-center mt-6">
+        <div className="text-center mt-5">
           <Spinner />
         </div>
       ) : (

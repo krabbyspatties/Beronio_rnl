@@ -14,7 +14,13 @@ const UserService = {
     .catch((error) => {
       throw error;
     });
-},
+  },
+  updateUser: async (userId: number, data:any) => {
+    return AxiosInstance.put(`/updateUser/${userId}`, data).then((response) => response ).catch((error) => {
+      throw error;
+    })
+  }
+  
 };
 
 export default UserService;
