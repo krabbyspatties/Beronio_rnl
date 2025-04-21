@@ -106,7 +106,7 @@ const DeleteGenderForm = ({ onDeleteGender }: DeleteGenderFormProps) => {
             </div>
             <div className="d-flex justify-content-end">
               <Link
-                to={"/"}
+                to={"/genders"}
                 className={`btn btn-secondary me-3 ${
                   state.loadingDestroy ? "disabled" : ""
                 }`}
