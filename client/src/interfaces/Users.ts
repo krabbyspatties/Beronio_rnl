@@ -7,6 +7,7 @@ export interface Users
     middle_name: string;
     last_name: string;
     suffix_name: string;
+    profile_picture: string;
     age: number;
     birth_date: string;
     gender: Genders;

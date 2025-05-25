@@ -6,11 +6,17 @@ import Spinner from "../../Spinner";
 
 interface UsersTable {
   refreshUsers: boolean;
+  onShowUser: (user: Users) => void;
   onEditUser: (user: Users) => void;
   onDeleteUser: (user: Users) => void;
 }
 
-const UsersTable = ({ refreshUsers, onEditUser, onDeleteUser }: UsersTable) => {
+const UsersTable = ({
+  refreshUsers,
+  onShowUser,
+  onEditUser,
+  onDeleteUser,
+}: UsersTable) => {
   const [state, setState] = useState({
     loadingUsers: true,
     users: [] as Users[],
@@ -68,6 +74,7 @@ const UsersTable = ({ refreshUsers, onEditUser, onDeleteUser }: UsersTable) => {
         <thead>
           <tr>
             <th>No.</th>
+            <th>Profile Picture</th>
             <th>Full Name</th>
             <th>Gender</th>
             <th>Birthdate</th>
@@ -88,6 +95,23 @@ const UsersTable = ({ refreshUsers, onEditUser, onDeleteUser }: UsersTable) => {
             state.users.map((user, index) => (
               <tr className="align-middle" key={index}>
                 <td>{index + 1}</td>
+                <td>
+                  <button
+                    type="button"
+                    className=""
+                    onClick={() => onShowUser(user)}
+                  >
+                    <img
+                      src={user.profile_picture}
+                      alt={`${user.first_name}'s profile`}
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "50%",
+                      }}
+                    />
+                  </button>
+                </td>
                 <td>{handleUsersFullName(user)}</td>
                 <td>{user.gender.gender}</td>
                 <td>{user.birth_date}</td>
@@ -116,7 +140,7 @@ const UsersTable = ({ refreshUsers, onEditUser, onDeleteUser }: UsersTable) => {
             ))
           ) : (
             <tr className="align-middle">
-              <td colSpan={8} className="text-center">
+              <td colSpan={9} className="text-center">
                 No Users Found
               </td>
             </tr>

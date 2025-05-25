@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->String('middle_name', 55)->nullable();
             $table->String('last_name', 55);
             $table->String('suffix_name', 55)->nullable();
+            $table->String('profile_picture', 255)->nullable();
             $table->integer('age');
             $table->date('birth_date');
             $table->unsignedBigInteger('gender_id');

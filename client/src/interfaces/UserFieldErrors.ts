@@ -3,6 +3,7 @@ export interface UserFieldErrors {
   middle_name?: string[];
   last_name?: string[];
   suffix_name?: string[];
+  profile_picture?: string[];
   birth_date?: string[];
   gender?: string[];
   address?: string[];

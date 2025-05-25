@@ -5,13 +5,25 @@ import UsersTable from "../../components/tables/user/UsersTable";
 import EditUserModal from "../../components/modals/user/EditUserModal";
 import type { Users } from "../../interfaces/Users";
 import DeleteUserModal from "../../components/modals/user/DeleteUserModal";
+import ShowUserModal from "../../components/modals/user/ShowUserModal";
 
 const Users = () => {
   const [refreshUsers, setRefreshUsers] = useState(false);
   const [selectedUser, setSelectedUser] = useState<Users | null>(null);
   const [openAddUserModal, setOpenAddUserModal] = useState(false);
+  const [openShowUserModal, setOpenShowUserModal] = useState(false);
   const [openEditUserModal, setOpenEditUserModal] = useState(false);
   const [openDeleteUserModal, setOpenDeleteUserModal] = useState(false);
+
+  const handleOpenShowUserModal = (user: Users) => {
+    setSelectedUser(user);
+    setOpenShowUserModal(true);
+  };
+
+  const handleCloseShowUserModal = () => {
+    setSelectedUser(null);
+    setOpenShowUserModal(false);
+  };
 
   const handleOpenEditUserModal = (user: Users) => {
     setSelectedUser(user);
@@ -35,6 +47,11 @@ const Users = () => {
 
   const content = (
     <>
+      <ShowUserModal
+        showModal={openShowUserModal}
+        user={selectedUser}
+        onClose={handleCloseShowUserModal}
+      />
       <AddUserModal
         showModal={openAddUserModal}
         onRefreshUsers={() => setRefreshUsers(!refreshUsers)}
@@ -64,6 +81,7 @@ const Users = () => {
       </div>
       <UsersTable
         refreshUsers={refreshUsers}
+        onShowUser={handleOpenShowUserModal}
         onEditUser={handleOpenEditUserModal}
         onDeleteUser={(user) => {
           handleOpenDeleteUserModal(user);

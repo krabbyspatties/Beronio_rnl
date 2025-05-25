@@ -23,6 +23,7 @@ const AddUserForm = ({
     middle_name: "",
     last_name: "",
     suffix_name: "",
+    profile_picture: "",
     birth_date: "",
     gender: "",
     address: "",
@@ -40,6 +41,7 @@ const AddUserForm = ({
       middle_name: "",
       last_name: "",
       suffix_name: "",
+      profile_picture: "",
       birth_date: "",
       gender: "",
       address: "",
@@ -207,6 +209,24 @@ const AddUserForm = ({
               {state.errors.suffix_name && (
                 <span className="text-danger">
                   {state.errors.suffix_name[0]}
+                </span>
+              )}
+            </div>
+            <div className="mb-3">
+              <label htmlFor="profile_picture">Profile Picture</label>
+              <input
+                type="text"
+                className={`form-control ${
+                  state.errors.profile_picture ? "is-invalid" : ""
+                }`}
+                name="profile_picture"
+                id="profile_picture"
+                value={state.profile_picture}
+                onChange={handleInputChange}
+              />
+              {state.errors.profile_picture && (
+                <span className="text-danger">
+                  {state.errors.profile_picture[0]}
                 </span>
               )}
             </div>

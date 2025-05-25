@@ -27,6 +27,7 @@ class UserController extends Controller
             'middle_name' => ['nullable'],
             'last_name' => ['required'],
             'suffix_name' => ['nullable'],
+            'profile_picture' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'birth_date' => ['required', 'date'],
             'gender' => ['required'],
             'address' => ['required'],
